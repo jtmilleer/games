@@ -48,5 +48,7 @@ public abstract class AbstractCard extends GameObject{
 
     public Image getBack(){return this.back;}
 
+    public abstract String toString();
+
 
 }
