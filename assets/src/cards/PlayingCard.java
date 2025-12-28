@@ -14,31 +14,43 @@ public class PlayingCard extends AbstractCard{
 
     public PlayingCard(String suit, String rank) {
         super(rank + " of " + suit, "PlayingCard_" + ++count);
-        this.suit = suit;
-        this.rank = rank;
+        this.suit = suit.toLowerCase();
+        this.rank = rank.toLowerCase();
 
-        String frontPath = String.format("images/cards/playingCards/%s_of_%s.png",
+
+
+        String frontPath = String.format("/images/cards/playingCards/%s_of_%s.png",
                                         rank.toLowerCase(),
                                         suit.toLowerCase());
+        System.out.println(frontPath);
 
-        String backPath = String.format("images/cards/playingCards/%sBack",
+        String backPath = String.format("/images/cards/playingCards/%sBack",
                                         backColor);
 
         final InputStream frontInputStream = getClass().getResourceAsStream(frontPath);
         final InputStream backInputStream = getClass().getResourceAsStream(backPath);
 
-        if(frontInputStream == null || backInputStream == null){
-            System.err.println("Error loading file for card");
-        } else{
+        if(frontInputStream == null){
+            System.err.printf("Error loading front file for %s of %s\n", rank.toLowerCase(), suit.toLowerCase());
+        }
+        else{
             this.setFace(new Image(frontInputStream));
+            System.out.printf("Created card %s of %s\n",rank,suit);
+        }
+        if(backInputStream == null){
+            //System.err.printf("Error loading back file for %s\n",backColor);
+        }
+        else{
             this.setBack(new Image(backInputStream));
         }
     }
 
+    public String getSuit(){return this.suit;}
+    public String getRank(){return this.rank;}
 
-
-    private static void loadFiles(final String suit, final String rank){
-
+    @Override
+    public String toString(){
+        return this.rank + " of " + this.suit;
     }
 
 }
