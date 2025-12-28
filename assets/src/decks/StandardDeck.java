@@ -20,7 +20,6 @@ public class StandardDeck extends AbstractDeck<PlayingCard>{
     public void initalizeDeck() {
         for(Suit suit: Suit.values()){
             for(Rank rank: Rank.values()){
-                System.out.println("Making card " + rank.name() + " of " + suit.name());
                 this.addCard(new PlayingCard(suit.name(),rank.name()));
             }
         }
