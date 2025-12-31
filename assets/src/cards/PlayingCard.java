@@ -2,27 +2,28 @@ package cards;
 import javafx.scene.image.Image;
 
 import java.io.InputStream;
+import java.util.Objects;
 
 public class PlayingCard extends AbstractCard{
 
-    private final String suit;
-    private final String rank;
+    private final Suit suit;
+    private final Rank rank;
 
     private static final String backColor = "red";
 
     private static int count;
 
-    public PlayingCard(String suit, String rank) {
+    public PlayingCard(final Suit suit, final Rank rank) {
         super(rank + " of " + suit, "PlayingCard_" + ++count);
-        this.suit = suit.toLowerCase();
-        this.rank = rank.toLowerCase();
+        this.suit = suit;
+        this.rank = rank;
 
 
 
         String frontPath = String.format("/images/cards/playingCards/%s_of_%s.png",
-                                        rank.toLowerCase(),
-                                        suit.toLowerCase());
-        System.out.println(frontPath);
+                                        rank.toString().toLowerCase(),
+                                        suit.toString().toLowerCase());
+        //System.out.println(frontPath);
 
         String backPath = String.format("/images/cards/playingCards/%sBack",
                                         backColor);
@@ -31,11 +32,11 @@ public class PlayingCard extends AbstractCard{
         final InputStream backInputStream = getClass().getResourceAsStream(backPath);
 
         if(frontInputStream == null){
-            System.err.printf("Error loading front file for %s of %s\n", rank.toLowerCase(), suit.toLowerCase());
+            System.err.printf("Error loading front file for %s of %s\n", rank.toString().toLowerCase(), suit.toString().toLowerCase());
         }
         else{
             this.setFace(new Image(frontInputStream));
-            System.out.printf("Created card %s of %s\n",rank,suit);
+            //System.out.printf("Created card %s of %s\n",rank,suit);
         }
         if(backInputStream == null){
             //System.err.printf("Error loading back file for %s\n",backColor);
@@ -45,12 +46,19 @@ public class PlayingCard extends AbstractCard{
         }
     }
 
-    public String getSuit(){return this.suit;}
-    public String getRank(){return this.rank;}
+    public Suit getSuit(){return this.suit;}
+    public Rank getRank(){return this.rank;}
 
     @Override
     public String toString(){
         return this.rank + " of " + this.suit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PlayingCard p)) return false;
+        return rank == p.rank && suit == p.suit;
     }
 
 }
