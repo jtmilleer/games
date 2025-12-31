@@ -26,29 +26,31 @@ public abstract class AbstractCard extends GameObject{
     /**
      * Method to flip the card.
      */
-    public void flip(){faceUp = !faceUp;}
+    public final void flip(){faceUp = !faceUp;}
 
     /**
      * Checks if the card is face up.
      * @return true if the card is face up, false if the card is face down.
      */
-    public boolean isFaceUp(){return faceUp;}
+    public final boolean isFaceUp(){return faceUp;}
 
-    public String getName(){return this.name;}
+    public final String getName(){return this.name;}
 
-    public void setFace(final Image image){
+    public final void setFace(final Image image){
         this.face = image;
     }
 
-    public void setBack(final Image image){
+    public final void setBack(final Image image){
         this.back = image;
     }
 
-    public Image getFace(){return this.face;}
+    public final Image getFace(){return this.face;}
 
-    public Image getBack(){return this.back;}
+    public final Image getBack(){return this.back;}
 
     public abstract String toString();
+
+    public abstract boolean equals(Object o);
 
 
 }
