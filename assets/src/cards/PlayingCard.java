@@ -51,7 +51,7 @@ public class PlayingCard extends AbstractCard{
 
     @Override
     public String toString(){
-        return this.rank + " of " + this.suit;
+        return cardRep(this.getSuit().getSuit(),this.getRank().getRankString());
     }
 
     @Override
@@ -60,5 +60,4 @@ public class PlayingCard extends AbstractCard{
         if (!(o instanceof PlayingCard p)) return false;
         return rank == p.rank && suit == p.suit;
     }
-
 }
