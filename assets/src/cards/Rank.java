@@ -17,11 +17,43 @@ public enum Rank {
 
     private final int value;
 
+    private final String rankString;
+
     Rank(int value) {
+        if(value < 11){
+            this.rankString = Integer.toString(value);
+        }
+        else{
+            switch(value){
+                case 11:{
+                    this.rankString = "J";
+                    break;
+                }
+                case 12:{
+                    this.rankString = "Q";
+                    break;
+                }
+                case 13:{
+                    this.rankString = "K";
+                    break;
+                }
+                case 14:{
+                    this.rankString = "A";
+                    break;
+                }
+                default:{
+                    throw new IllegalArgumentException("Rank not set");
+                }
+            }
+        }
+
         this.value = value;
     }
 
     public int getValue() {
         return value;
+    }
+    public String getRankString(){
+        return this.rankString;
     }
 }
