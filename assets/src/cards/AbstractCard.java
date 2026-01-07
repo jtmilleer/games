@@ -52,5 +52,19 @@ public abstract class AbstractCard extends GameObject{
 
     public abstract boolean equals(Object o);
 
+    private static final int cardMiddleLength = 10;
+
+    static String cardRep(final String top, final String center){
+        final String topFormatted = top.substring(0,1);
+        return "+" + "-".repeat(cardMiddleLength) + "+\n" +
+                "|" + topFormatted + " ".repeat(cardMiddleLength - 1) + "|\n" +
+                "|" + " ".repeat(cardMiddleLength) + "|\n" +
+                "|" + " ".repeat(cardMiddleLength) + "|\n" +
+                "|" + " ".repeat(cardMiddleLength/2) + center +  " " .repeat(cardMiddleLength/2 - 1) + "|\n" +
+                "|" + " ".repeat(cardMiddleLength) + "|\n" +
+                "|" + " ".repeat(cardMiddleLength) + "|\n" +
+                "+" + "-".repeat(cardMiddleLength) + "+";
+    }
+
 
 }
