@@ -32,6 +32,8 @@ public abstract class AbstractPlayer <T extends AbstractCard> {
         hand.add(card);
     }
 
+    public boolean isHandEmpty(){return this.hand.isEmpty();}
+
     /**
      * Method to remove a Card from players hand.
      * @param card <code>PlayingCard</code> to remove from hand
