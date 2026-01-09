@@ -13,8 +13,9 @@ public final class WarComparator {
      */
     public static int compare(PlayingCard a, PlayingCard b) {
         return Integer.compare(
-                a.getRank().getValue(),
-                b.getRank().getValue()
+                a.getRank().getNumericValue(),
+                b.getRank().getNumericValue()
         );
+
     }
 }
