@@ -41,11 +41,7 @@ public abstract class AbstractPlayer <T extends AbstractCard> {
             System.err.println("Cannot remove card, hand is empty");
             return;
         }
-        for(T c: hand){
-            if(c.equals(card)){hand.remove(c);}
-            break;
-        }
-        System.err.println("Card not found in hand, are you sure it's in there??");
+        if(!hand.remove(card)){System.err.println("Card not found in hand, are you sure it's in there??");}
     }
 
     public int getNumCardsInHand(){return this.hand.size();}
@@ -54,6 +50,46 @@ public abstract class AbstractPlayer <T extends AbstractCard> {
         Collections.shuffle(hand);
     }
 
+    public T playCard(){
+        return this.hand.removeFirst();
+    }
+
 
     public abstract String toString();
+
+    public void printHandHorizontal() {
+        if (hand.isEmpty()) {
+            System.out.println("(Empty hand)");
+            return;
+        }
+
+        final int cardHeight = 8; // same as AbstractCard.cardRep
+        String[] lines = new String[cardHeight];
+
+        for (int i = 0; i < cardHeight; i++) lines[i] = "";
+
+        for (int index = 0; index < hand.size(); index++) {
+            T card = hand.get(index);
+
+            String top = card.getName();
+            String center = "chage me AbstractPlayer line 75";
+
+            String[] repLines = card.toString().split("\n");
+            //String[] repLines = AbstractCard.cardRep(top, center).split("\n");
+
+            for (int i = 0; i < cardHeight; i++) {
+                lines[i] += repLines[i] + "  ";
+            }
+        }
+
+        for (String line : lines) {
+            System.out.println(line);
+        }
+
+        // print indices for player input
+        for (int i = 0; i < hand.size(); i++) {
+            System.out.print("    " + (i + 1) + "       "); // align with card width
+        }
+        System.out.println();
+    }
 }
