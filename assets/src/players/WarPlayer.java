@@ -18,11 +18,10 @@ public class WarPlayer extends AbstractPlayer<PlayingCard>{
 
     public WarPlayer(final String name){
         super(name);
+        count++;
     }
 
-    public PlayingCard playCard(){
-        return this.hand.removeFirst();
-    }
+
 
     public void collectCards(final PlayingCard c1, final PlayingCard c2){
         this.collectedCards.add(c1);
