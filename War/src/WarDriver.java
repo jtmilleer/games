@@ -13,7 +13,7 @@ public class WarDriver {
         final StandardDeck d = new StandardDeck();
         d.shuffle();
 
-        d.distributeDeck(p1, p2, d.getCardCount() / 2);
+        d.distributeDeck(d.getCardCount()/2 ,p1,p2);
         System.out.println("Deck distributed. Starting the game!");
 
         while (true) {
@@ -47,8 +47,8 @@ public class WarDriver {
         final PlayingCard player1Card = p1.playCard();
         final PlayingCard player2Card = p2.playCard();
 
-        System.out.println(p1.getUsername() + " plays " + player1Card);
-        System.out.println(p2.getUsername() + " plays " + player2Card);
+        System.out.println(p1.getUsername() + " plays\n" + player1Card);
+        System.out.println(p2.getUsername() + " plays\n" + player2Card);
 
         int compared = WarComparator.compare(player1Card, player2Card);
 
