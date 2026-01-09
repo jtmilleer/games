@@ -13,20 +13,15 @@ public class StandardDeck extends AbstractDeck<PlayingCard>{
      */
     public StandardDeck(){
         super(52);
-        for(Suit suit: Suit.values()){
-            for(Rank rank: Rank.values()){
+        for(PlayingCard.Suit suit: PlayingCard.Suit.values()){
+            for(PlayingCard.Rank rank: PlayingCard.Rank.values()){
                 this.addCard(new PlayingCard(suit,rank));
             }
         }
         this.shuffle();
     }
 
-    public <T extends AbstractPlayer> void distributeDeck(final T p1, final T p2, final int numCards){
-        for(int i = 0; i < numCards; i++){
-            p1.addCardToHand(this.draw());
-            p2.addCardToHand(this.draw());
-        }
-    }
+
 
 }
 
