@@ -6,7 +6,8 @@ public abstract class AbstractCard extends GameObject{
     private final String name;
 
     private Image face;
-    private Image back;
+
+    private Image image;
 
     private static int count;
 
@@ -22,7 +23,7 @@ public abstract class AbstractCard extends GameObject{
         this.cardType = type;
         this.cardValue = value;
         this.name = name;
-        faceUp = false;
+        faceUp = true;
     }
 
     /**
@@ -80,15 +81,7 @@ public abstract class AbstractCard extends GameObject{
         this.face = image;
     }
 
-    public final void setBack(final Image image){
-        this.back = image;
-    }
-
     public final Image getFace(){return this.face;}
-
-    public final Image getBack(){return this.back;}
-
-    //public abstract String toString();
 
     public abstract boolean equals(Object o);
 
@@ -126,6 +119,8 @@ public abstract class AbstractCard extends GameObject{
                 "|" + " ".repeat(cardMiddleLength) + "|\n" +
                 "+" + "-".repeat(cardMiddleLength) + "+";
     }
+
+    public abstract Image getImage();
 
 
 
