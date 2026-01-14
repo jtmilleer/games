@@ -1,10 +1,13 @@
 package cards;
 
+import javafx.scene.image.Image;
+
 public class UnoCard extends AbstractCard{
 
     private final Color cardColor;
     private final Type type;
     private static int count;
+
 
     public UnoCard(final Color c, final Type type){
         //super(c.toString(),"UnoCard_" + ++count);
@@ -15,13 +18,10 @@ public class UnoCard extends AbstractCard{
         this.cardColor = c;
         this.type = type;
     }
-    /*
     @Override
-    public String toString() {
-        final String cardColorFormatted = cardColor.getCardValue().substring(0,1);
-        return cardRep(cardColorFormatted,type.toString());
+    public Image getImage(){
+        return null;
     }
-     */
 
     @Override
     public boolean equals(Object o) {
