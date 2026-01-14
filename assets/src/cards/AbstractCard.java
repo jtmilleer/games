@@ -14,6 +14,8 @@ public abstract class AbstractCard extends GameObject{
 
     private Image face;
 
+    private final Image back;
+
     //private Image image;
 
     private static int count;
@@ -25,11 +27,13 @@ public abstract class AbstractCard extends GameObject{
      * @param type Some object that implements <code>CardType</code>, usually an enum
      * @param value Some object that implements <code>CardValue</code>, usually an enum
      */
-    public AbstractCard(String name, final CardType type, final CardValue value) {
+    AbstractCard(String name, final CardType type, final CardValue value,
+                 final Image back) {
         super(name,"AbstractCard_" + ++count);
         this.cardType = type;
         this.cardValue = value;
         this.name = name;
+        this.back = back;
         faceUp = true;
     }
 
@@ -41,11 +45,13 @@ public abstract class AbstractCard extends GameObject{
      * @param type Some object that implements <code>CardType</code>, usually an enum
      * @param value Some object that implements <code>CardValue</code>, usually an enum
      */
-    public AbstractCard(String name, String id, final CardType type, final CardValue value){
+    AbstractCard(String name, String id, final CardType type, final CardValue value,
+                 final Image back){
         super(name,id);
         this.cardType = type;
         this.cardValue = value;
         this.name = name;
+        this.back = back;
         faceUp = false;
         count++;
     }
@@ -149,6 +155,7 @@ public abstract class AbstractCard extends GameObject{
                 "+" + "-".repeat(cardMiddleLength) + "+";
     }
 
+    /*
     /**
      * Each subclass must define <code>getImage</code>. This usually will be
      * @return <code>Image</code> object for JavaFX to display. This usually means checking if the card is
@@ -157,8 +164,13 @@ public abstract class AbstractCard extends GameObject{
      */
     /*
         I wish I could define this method here, but I cannot access the subclass back variables.
-     */
+
     public abstract Image getImage();
+    */
+
+    public final Image getImage(){
+        return this.faceUp ? this.face : this.back;
+    }
 
 
 

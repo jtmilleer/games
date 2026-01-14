@@ -4,13 +4,18 @@ import javafx.scene.image.Image;
 import java.io.InputStream;
 import java.util.Objects;
 
+/**
+ * Class that represents a standard playing card from a 52-card deck. Has a suit and a rank.
+ * <p>Extends <code>AbstractClass</code>
+ * @author Jordan Miller
+ */
 public class PlayingCard extends AbstractCard{
 
     private final Suit suit;
     private final Rank rank;
 
     private static final String backColor = "red";
-    private static final String backColorPath = String.format("images/cards/playingCards/%sBack",backColor);
+    private static final String backColorPath = String.format("/images/cards/playingCards/%sBack.png",backColor);
 
     private static int count;
 
@@ -18,7 +23,8 @@ public class PlayingCard extends AbstractCard{
     private static final Image backImage = new Image(Objects.requireNonNull(PlayingCard.class.getResourceAsStream(backColorPath)));
 
     public PlayingCard(final Suit suit, final Rank rank) {
-        super(rank + " of " + suit, "PlayingCard_" + ++count,suit,rank);
+        super(rank + " of " + suit, "PlayingCard_" + ++count,suit,rank,
+                backImage);
         this.suit = suit;
         this.rank = rank;
 
@@ -39,13 +45,13 @@ public class PlayingCard extends AbstractCard{
 
     }
 
+    /**
+     * Method to get the <code>Suit</code> of the class.
+     * <code>Suit</code> implements <code>CardType</code>
+     * @return
+     */
     public Suit getSuit(){return this.suit;}
     public Rank getRank(){return this.rank;}
-
-    @Override
-    public Image getImage(){
-        return isFaceUp() ? this.getFace() : backImage;
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -24,13 +24,10 @@ public class UnoCard extends AbstractCard{
         super(  c.toString() + type.toString(),
                 "UnoCard_" + ++count,
                 c,
-                type);
+                type,
+                null);
         this.cardColor = c;
         this.type = type;
-    }
-    @Override
-    public Image getImage(){
-        return null;
     }
 
     @Override
