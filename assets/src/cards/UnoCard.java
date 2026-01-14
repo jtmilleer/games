@@ -2,14 +2,24 @@ package cards;
 
 import javafx.scene.image.Image;
 
+/**
+ * Class that represents an Uno Card, extends <code>AbstractCard</code>
+ * @author Jordan Miller
+ */
 public class UnoCard extends AbstractCard{
 
     private final Color cardColor;
-    private final Type type;
+    private final Value type;
     private static int count;
 
 
-    public UnoCard(final Color c, final Type type){
+    /**
+     * 2 Input Constructor. Makes a card with Color c and Type type.
+     * Color must implement <code>CardType</code> and Type must implement <code>CardValue</code>
+     * @param c <code>Color</code> that the new card will be.
+     * @param type <code></code>
+     */
+    public UnoCard(final Color c, final Value type){
         //super(c.toString(),"UnoCard_" + ++count);
         super(  c.toString() + type.toString(),
                 "UnoCard_" + ++count,
@@ -52,7 +62,7 @@ public class UnoCard extends AbstractCard{
 
     }
 
-    public enum Type implements CardValue{
+    public enum Value implements CardValue{
         ZERO(0),
         ONE(1),
         TWO(2),
@@ -72,7 +82,7 @@ public class UnoCard extends AbstractCard{
 
         private final int num;
 
-        Type(final int num){
+        Value(final int num){
             this.num = num;
         }
 
@@ -92,17 +102,17 @@ public class UnoCard extends AbstractCard{
             };
         }
 
-        public static Type[] numberTypes() {
-            return new Type[] {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE};
+        public static Value[] numberTypes() {
+            return new Value[] {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE};
         }
 
 
-        public static Type[] actionTypes() {
-            return new Type[] {SKIP, REVERSE, DRAW_TWO};
+        public static Value[] actionTypes() {
+            return new Value[] {SKIP, REVERSE, DRAW_TWO};
         }
 
-        public static Type[] wildTypes() {
-            return new Type[] {WILD, DRAW_FOUR};
+        public static Value[] wildTypes() {
+            return new Value[] {WILD, DRAW_FOUR};
         }
     }
 }
