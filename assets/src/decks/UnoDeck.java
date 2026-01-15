@@ -2,10 +2,17 @@ package decks;
 
 import cards.UnoCard;
 
+/**
+ * Class that represents a regular uno deck.
+ * @author Jordan Miller
+ */
 public class UnoDeck extends AbstractDeck<UnoCard> {
 
 
-
+    /**
+     * Default constructor that initializes the capacity to 108.
+     * Initializes deck and shuffles.
+     */
     public UnoDeck() {
         super(108);
         for (UnoCard.Color color : UnoCard.Color.values()) {

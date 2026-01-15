@@ -48,11 +48,23 @@ public class PlayingCard extends AbstractCard{
     /**
      * Method to get the <code>Suit</code> of the class.
      * <code>Suit</code> implements <code>CardType</code>
-     * @return
+     * @return <code>Suit</code> of the card
      */
     public Suit getSuit(){return this.suit;}
+
+    /**
+     * Method to get the <code>Rank</code> of the class.
+     * <code>Rank</code> implements <code>CardValue</code>
+     * @return <code>Rank</code> of the card
+     */
     public Rank getRank(){return this.rank;}
 
+    /**
+     * Method to compare two <code>PlayingCards</code> for equality.
+     * <p>For a playing card, two cards are equal iff the ranks are the same and the suits are the same
+     * @param o the reference object with which to compare.
+     * @return true if the cards are equal, false if they are not.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,6 +73,11 @@ public class PlayingCard extends AbstractCard{
     }
 
 
+    /**
+     * Enum that represents all rank possibilities.
+     * Two-Ten have numerical values equal to their name,
+     * then Jack, Queen, King and Ace have 11,12,13,14 for values respectively.
+     */
     public enum Rank implements CardValue{
         TWO(2),
         THREE(3),
@@ -79,6 +96,7 @@ public class PlayingCard extends AbstractCard{
         private final int value;
 
         private final String rankString;
+
 
         Rank(int value) {
             if(value < 11){
@@ -122,12 +140,16 @@ public class PlayingCard extends AbstractCard{
 
     }
 
+    /**
+     * enum that represents all possible suits of a card.
+     * <p>Clubs, Diamonds, Hearts and Spades are the possible values.
+     */
     public enum Suit implements CardType{
         CLUBS("Clubs"), DIAMONDS("Diamonds"), HEARTS("Hearts"), SPADES("Spades");
 
         private final String suit;
 
-        private Suit(final String suit){
+        Suit(final String suit){
             this.suit = suit;
         }
 

@@ -1,10 +1,11 @@
 package decks;
 
 import cards.PlayingCard;
-import cards.Rank;
-import cards.Suit;
-import players.AbstractPlayer;
 
+/**
+ * Class that represents a standard deck of playing cards.
+ * @author Jordan Miller
+ */
 public class StandardDeck extends AbstractDeck<PlayingCard>{
 
     /**

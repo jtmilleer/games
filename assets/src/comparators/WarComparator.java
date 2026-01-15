@@ -4,6 +4,9 @@ import cards.PlayingCard;
 
 import java.util.Comparator;
 
+/**
+ * Utility class that holds one method to compare 2 playing cards for war.
+ */
 public final class WarComparator {
     /**
      * Method to compare 2 cards for war

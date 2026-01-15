@@ -6,7 +6,7 @@ public class Main {
         StandardDeck deck = new StandardDeck();
         deck.initalizeDeck();
 
-        PlayingCard playingCard = deck.draw();
+        PlayingCard playingCard = deck.drawCard();
         System.out.println(playingCard);
     }
 }

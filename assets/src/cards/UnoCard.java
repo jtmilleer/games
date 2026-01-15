@@ -1,7 +1,5 @@
 package cards;
 
-import javafx.scene.image.Image;
-
 /**
  * Class that represents an Uno Card, extends <code>AbstractCard</code>
  * @author Jordan Miller
@@ -30,15 +28,29 @@ public class UnoCard extends AbstractCard{
         this.type = type;
     }
 
+    /**
+     * Method to compare two <code>UnoCards</code> for equality.
+     * <p>For a Uno card, two cards are equal iff the colors are equal and the types are equal.
+     * @param o the reference object with which to compare.
+     * @return true if the cards are equal, false if they are not.
+     */
     @Override
     public boolean equals(Object o) {
         if(this == o) {return true;}
         if(!(o instanceof UnoCard u)){return false;}
-        return this.getTitleColor().equals(u.getTitleColor()) && this.type.equals(u.type);
+        return this.getColor().equals(u.getColor()) && this.type.equals(u.type);
     }
 
-    public String getTitleColor(){return this.cardColor.getCardType();}
+    /**
+     * Method to get the color of the card.
+     * Red, Green, Blue or Yellow
+     * @return a <code>String</code> with the color of the card.
+     */
+    public String getColor(){return this.cardColor.getCardType();}
 
+    /**
+     * Enum representing the color of the card.
+     */
     public enum Color implements CardType{
 
         RED("Red"),
@@ -59,6 +71,16 @@ public class UnoCard extends AbstractCard{
 
     }
 
+    /**
+     * Enum represeting the Value of the card.
+     * Zero-Nine have their name as the value.
+     * Reverse -> -1,
+     * Draw Two -> -2,
+     * Skip -> -3,
+     * Draw Four -> -4,
+     * Wild -> -5
+     *
+     */
     public enum Value implements CardValue{
         ZERO(0),
         ONE(1),

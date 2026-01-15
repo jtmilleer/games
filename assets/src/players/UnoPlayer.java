@@ -2,8 +2,6 @@ package players;
 
 import cards.UnoCard;
 
-import java.util.List;
-
 public class UnoPlayer extends AbstractPlayer<UnoCard> {
 
     private static int count;
