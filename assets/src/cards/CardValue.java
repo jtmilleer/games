@@ -8,7 +8,7 @@ package cards;
  * This interface is usually implemented by an <code>enum</code>
  * @author Jordan Miller
  */
-interface CardValue {
+public interface CardValue {
     /**
      * Method to get the card value in a <code>String</code>
      * @return <code>String</code> containing information about the card value

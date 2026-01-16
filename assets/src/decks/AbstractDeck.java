@@ -12,7 +12,7 @@ import java.util.*;
  * @param <T> Class that extends <code>AbstractCard</code>
  * @author Jordan Miller
  */
-abstract class AbstractDeck<T extends AbstractCard> extends GameObject {
+public abstract class AbstractDeck<T extends AbstractCard> extends GameObject {
     private final Deque<T> deck = new LinkedList<>();
 
     public final int capacity;

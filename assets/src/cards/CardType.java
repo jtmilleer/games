@@ -6,7 +6,7 @@ package cards;
  * This interface is usually implemented by an <code>enum</code>
  * @author Jordan Miller
  */
-interface CardType {
+public interface CardType {
 
 
     //TODO both methods needed??
